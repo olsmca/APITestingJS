@@ -2,7 +2,6 @@ const app = require ('../src/app');
 const request = require ('supertest');
 const expect = require ('chai').expect;
 
-
 describe('response ', () =>{
     it('json response', () =>{
         request(app)

@@ -1,4 +1,3 @@
-
 const app = require ('../src/app');
 const request = require ('supertest');
 const expect = require ('chai').expect;
@@ -18,4 +17,21 @@ describe('get requests', ()=>{
         .query({'name' : 'mocha'})
         .expect(200, {id:'1', name:'mocha'}, done);
     })
+
+    it('get courses status', () =>{
+        request(app)
+        .get('/courses')
+        .end((err, res) =>{
+            expect(res.ok).to.be.true;
+        })
+    })
+
+    it('courses response', () =>{
+        request(app)
+        .get('/courses')
+        .end((err,res) =>{
+            expect(res.body.name).to.contain('api');
+        })
+        
+    });
 });
