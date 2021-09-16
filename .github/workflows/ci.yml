@@ -34,3 +34,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPORTER: 'text'
+          COVERAGE_FOLDER: coverage/
