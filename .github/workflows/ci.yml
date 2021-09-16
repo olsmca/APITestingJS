@@ -30,9 +30,7 @@ jobs:
       - name: Run Test
         run: npm run test
       - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()    # run this step even if previous step failed
+        uses: Tintef/nyc-reporter-action@0.1.0
         with:
-          name: JEST Tests            # Name of the check run which will be created
-          path: coverage/cobertura-*.xml    # Path to test results
-          reporter: jest-junit
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORTER: 'text'
